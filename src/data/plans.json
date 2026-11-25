@@ -1,0 +1,55 @@
+[
+  {
+    "id": "starter",
+    "name": "Starter",
+    "tagline": "Essential access for fitness beginners",
+    "monthlyPrice": 29,
+    "annualPrice": 23,
+    "popular": false,
+    "features": [
+      "Access to standard gym floor & cardio equipment",
+      "Locker room & shower amenities",
+      "1 Complimentary fitness assessment",
+      "Access to mobile member app",
+      "Standard support hours"
+    ],
+    "color": "from-slate-700 to-slate-900",
+    "accentColor": "border-slate-600"
+  },
+  {
+    "id": "pro-athlete",
+    "name": "Pro Athlete",
+    "tagline": "Most popular choice for committed lifters",
+    "monthlyPrice": 59,
+    "annualPrice": 47,
+    "popular": true,
+    "features": [
+      "Full 24/7 access to all gym zones & free weights",
+      "Unlimited group fitness & HIIT classes",
+      "Sauna, steam room & hydro-massage lounge",
+      "Monthly body composition scanning",
+      "1 Guest pass per month",
+      "10% discount on in-house nutrition bar"
+    ],
+    "color": "from-amber-500 to-orange-600",
+    "accentColor": "border-orange-500"
+  },
+  {
+    "id": "elite",
+    "name": "Elite VIP",
+    "tagline": "The ultimate VIP transformation experience",
+    "monthlyPrice": 99,
+    "annualPrice": 79,
+    "popular": false,
+    "features": [
+      "All Pro Athlete features included",
+      "2 Monthly 1-on-1 Personal Training sessions",
+      "Dedicated nutrition & diet coaching",
+      "Priority class reservation window",
+      "Complimentary gym apparel & towel service",
+      "Unlimited guest passes"
+    ],
+    "color": "from-violet-600 to-purple-800",
+    "accentColor": "border-purple-500"
+  }
+]
