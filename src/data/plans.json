@@ -3,8 +3,8 @@
     "id": "starter",
     "name": "Starter",
     "tagline": "Essential access for fitness beginners",
-    "monthlyPrice": 29,
-    "annualPrice": 23,
+    "monthlyPrice": 1499,
+    "annualPrice": 1199,
     "popular": false,
     "features": [
       "Access to standard gym floor & cardio equipment",
@@ -20,8 +20,8 @@
     "id": "pro-athlete",
     "name": "Pro Athlete",
     "tagline": "Most popular choice for committed lifters",
-    "monthlyPrice": 59,
-    "annualPrice": 47,
+    "monthlyPrice": 2999,
+    "annualPrice": 2399,
     "popular": true,
     "features": [
       "Full 24/7 access to all gym zones & free weights",
@@ -38,8 +38,8 @@
     "id": "elite",
     "name": "Elite VIP",
     "tagline": "The ultimate VIP transformation experience",
-    "monthlyPrice": 99,
-    "annualPrice": 79,
+    "monthlyPrice": 4999,
+    "annualPrice": 3999,
     "popular": false,
     "features": [
       "All Pro Athlete features included",

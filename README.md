@@ -37,7 +37,7 @@ This application enables prospective and active gym members to explore membershi
 ### 3. ✍️ Membership Enrollment & Add-on Calculation (`/join/:planId`)
 - Reads selected tier from the route parameter (`/join/:planId`) with dynamic on-page tier switching.
 - **Monthly / Annual Billing Toggle** with real-time recalculation.
-- **Optional Personal Training Add-on (+ $45/mo or $36/mo annual)**: Checkbox that updates the live total price breakdown in real-time.
+- **Optional Personal Training Add-on (+ Rs. 1,999/mo or Rs. 1,599/mo annual)**: Checkbox that updates the live total price breakdown in real-time.
 - **Member Registration Form:**
   - Fields: Full Name, Email Address, Phone Number, Start Date, Experience Level, Primary Fitness Goal, and Simulated Payment Method.
   - Inline validation ensuring clean required field submission.

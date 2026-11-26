@@ -30,8 +30,8 @@ export default function Join() {
 
   // Optional Add-on state
   const [includePersonalTrainer, setIncludePersonalTrainer] = useState(false);
-  const ptMonthlyRate = 45;
-  const ptAnnualRate = 36; // 20% off
+  const ptMonthlyRate = 1999;
+  const ptAnnualRate = 1599; // 20% off
   const activePtRate = billingCycle === 'annual' ? ptAnnualRate : ptMonthlyRate;
 
   // Form inputs
@@ -104,7 +104,7 @@ export default function Join() {
         includePersonalTrainer,
         ptRate: includePersonalTrainer ? activePtRate : 0,
         totalBilledToday,
-        currency: 'USD',
+        currency: 'INR',
       },
     };
 
@@ -171,7 +171,7 @@ export default function Join() {
                         {p.name}
                       </p>
                       <p className="text-[11px] text-slate-500 mt-0.5">
-                        ${billingCycle === 'annual' ? p.annualPrice : p.monthlyPrice}/mo
+                        Rs. {(billingCycle === 'annual' ? p.annualPrice : p.monthlyPrice).toLocaleString('en-IN')}/mo
                       </p>
                     </button>
                   );
@@ -242,7 +242,7 @@ export default function Join() {
                     Dedicated 1-on-1 Personal Coaching Add-on
                   </span>
                   <span className="text-xs font-black text-orange-400 font-mono">
-                    +${activePtRate}/mo
+                    +Rs. {activePtRate.toLocaleString('en-IN')}/mo
                   </span>
                 </div>
                 <p className="text-xs text-slate-400 mt-1 leading-relaxed">
@@ -464,13 +464,13 @@ export default function Join() {
             <div className="space-y-3 pt-4 border-t border-slate-800 text-sm">
               <div className="flex justify-between text-slate-400">
                 <span>Base Plan ({billingCycle})</span>
-                <span className="text-white font-mono font-semibold">${basePrice}/mo</span>
+                <span className="text-white font-mono font-semibold">Rs. {basePrice.toLocaleString('en-IN')}/mo</span>
               </div>
 
               {includePersonalTrainer && (
                 <div className="flex justify-between text-orange-400">
                   <span>1-on-1 Coaching Add-on</span>
-                  <span className="font-mono font-semibold">+${activePtRate}/mo</span>
+                  <span className="font-mono font-semibold">+Rs. {activePtRate.toLocaleString('en-IN')}/mo</span>
                 </div>
               )}
 
@@ -492,9 +492,9 @@ export default function Join() {
                 </div>
                 <div className="text-right">
                   <span className="text-3xl font-black text-white font-mono">
-                    ${totalBilledToday}
+                    Rs. {totalBilledToday.toLocaleString('en-IN')}
                   </span>
-                  <span className="text-xs text-slate-400 block">USD</span>
+                  <span className="text-xs text-slate-400 block">INR</span>
                 </div>
               </div>
             </div>

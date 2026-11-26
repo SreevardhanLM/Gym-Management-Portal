@@ -5,7 +5,9 @@ export default function PlanCard({ plan, isAnnual }) {
   const navigate = useNavigate();
 
   const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
-  const billedInfo = isAnnual ? 'billed annually ($' + (price * 12) + '/yr)' : 'billed monthly';
+  const billedInfo = isAnnual
+    ? 'billed annually (Rs. ' + (price * 12).toLocaleString('en-IN') + '/yr)'
+    : 'billed monthly';
 
   const handleSelectPlan = () => {
     navigate(`/join/${plan.id}`, {
@@ -52,9 +54,9 @@ export default function PlanCard({ plan, isAnnual }) {
         {/* Pricing Display */}
         <div className="mb-6 p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
           <div className="flex items-baseline gap-1.5">
-            <span className="text-sm font-semibold text-slate-400">$</span>
-            <span className="text-5xl font-black text-white tracking-tight">
-              {price}
+            <span className="text-xl font-black text-orange-400">Rs.</span>
+            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              {price.toLocaleString('en-IN')}
             </span>
             <span className="text-slate-400 font-medium text-sm">/ month</span>
           </div>

@@ -151,13 +151,13 @@ export default function Confirmation() {
             <div className="space-y-3 text-sm mb-6">
               <div className="flex justify-between text-slate-400">
                 <span>{plan.name} Plan ({plan.billingCycle})</span>
-                <span className="text-white font-mono font-semibold">${plan.basePrice}/mo</span>
+                <span className="text-white font-mono font-semibold">Rs. {plan.basePrice.toLocaleString('en-IN')}/mo</span>
               </div>
 
               {plan.includePersonalTrainer && (
                 <div className="flex justify-between text-orange-400 text-xs">
                   <span>1-on-1 Dedicated Coaching Add-on</span>
-                  <span className="font-mono font-semibold">+${plan.ptRate}/mo</span>
+                  <span className="font-mono font-semibold">+Rs. {plan.ptRate.toLocaleString('en-IN')}/mo</span>
                 </div>
               )}
 
@@ -165,9 +165,9 @@ export default function Confirmation() {
                 <span className="text-sm font-bold text-white">Amount Paid (Simulated)</span>
                 <div className="text-right">
                   <span className="text-2xl font-black text-white font-mono">
-                    ${plan.totalBilledToday}
+                    Rs. {plan.totalBilledToday.toLocaleString('en-IN')}
                   </span>
-                  <span className="text-[10px] text-slate-500 block">USD</span>
+                  <span className="text-[10px] text-slate-500 block">INR</span>
                 </div>
               </div>
             </div>
