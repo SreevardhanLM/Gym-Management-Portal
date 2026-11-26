@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Dumbbell, Calendar, BookmarkCheck, Flame, Menu, X, ArrowRight } from 'lucide-react';
+import { Dumbbell, Calendar, BookmarkCheck, Menu, X, ArrowRight } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 
 export default function Navbar() {

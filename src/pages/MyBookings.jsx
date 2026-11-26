@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import {
@@ -8,11 +7,7 @@ import {
   User,
   Trash2,
   ArrowRight,
-  Dumbbell,
-  Sparkles,
-  Flame,
   CheckCircle2,
-  CalendarPlus,
 } from 'lucide-react';
 
 export default function MyBookings() {

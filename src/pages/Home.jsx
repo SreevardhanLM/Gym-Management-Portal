@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import plansData from '../data/plans.json';
 import PlanCard from '../components/PlanCard';
@@ -13,7 +13,6 @@ import {
   ArrowRight,
   Users,
   Clock,
-  Activity,
   HeartPulse,
 } from 'lucide-react';
 

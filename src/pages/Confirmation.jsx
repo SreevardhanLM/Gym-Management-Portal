@@ -1,18 +1,13 @@
-import React from 'react';
-import { useLocation, Link, Navigate } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import {
   CheckCircle2,
   Calendar,
   Sparkles,
   ArrowRight,
-  User,
-  Mail,
-  Phone,
   ShieldCheck,
   Dumbbell,
   QrCode,
-  Download,
   BookmarkCheck,
 } from 'lucide-react';
 

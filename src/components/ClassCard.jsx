@@ -1,4 +1,3 @@
-import React from 'react';
 import { useBooking } from '../context/BookingContext';
 import { Clock, User, CheckCircle2, AlertCircle, Dumbbell, Zap, Flame, HeartHandshake } from 'lucide-react';
 

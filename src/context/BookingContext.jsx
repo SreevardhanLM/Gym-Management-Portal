@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import initialClasses from '../data/classes.json';
 
 const BookingContext = createContext(null);
@@ -125,6 +125,7 @@ export function BookingProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useBooking() {
   const context = useContext(BookingContext);
   if (!context) {

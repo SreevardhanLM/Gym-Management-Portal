@@ -51,7 +51,7 @@ export function getBMICategory(bmi) {
  * Calculate recommended daily calorie intake based on weight (kg), height (cm), and fitness goal
  * Fitness goals: 'fat-loss', 'maintenance', 'muscle-gain'
  */
-export function calculateDailyCalories(heightCm, weightKg, goal = 'maintenance', gender = 'neutral') {
+export function calculateDailyCalories(heightCm, weightKg, goal = 'maintenance') {
   if (!heightCm || !weightKg || heightCm <= 0 || weightKg <= 0) {
     return null;
   }

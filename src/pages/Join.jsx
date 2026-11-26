@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useLocation, useNavigate, Link } from 'react-router-dom';
 import plansData from '../data/plans.json';
 import { useBooking } from '../context/BookingContext';
 import {
   ShieldCheck,
   Check,
-  CreditCard,
   User,
-  Mail,
-  Phone,
-  Calendar,
   Sparkles,
   ArrowRight,
   ChevronLeft,
-  Dumbbell,
   CheckCircle2,
   Lock,
 } from 'lucide-react';

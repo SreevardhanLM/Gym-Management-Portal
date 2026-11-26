@@ -1,6 +1,6 @@
-import React, { useState, useId } from 'react';
+import { useState, useId } from 'react';
 import { calculateBMI, getBMICategory, calculateDailyCalories } from '../utils/calculations';
-import { Flame, Activity, Target, Sparkles, Scale, Info } from 'lucide-react';
+import { Flame, Activity, Target, Scale, Info } from 'lucide-react';
 
 export default function BMICalculator() {
   const heightInputId = useId();

@@ -1,16 +1,14 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
 import ClassCard from '../components/ClassCard';
 import {
   Calendar,
   Filter,
-  CheckCircle2,
   BookmarkCheck,
   RotateCcw,
   Sparkles,
   ArrowRight,
-  Flame,
 } from 'lucide-react';
 
 export default function Classes() {
