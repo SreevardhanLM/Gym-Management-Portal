@@ -30,7 +30,7 @@ export default function Home() {
       badgeColor: 'border-orange-500/30 text-orange-400 bg-orange-500/10',
     },
     {
-      name: 'Elena Rostova',
+      name: 'Anjali Nair',
       role: 'Elite Strength & Barbell Specialist',
       certifications: 'USAW Level 2, NSCA-CPT',
       experience: '11+ Years Exp',
@@ -38,7 +38,7 @@ export default function Home() {
       badgeColor: 'border-amber-500/30 text-amber-400 bg-amber-500/10',
     },
     {
-      name: 'Marcus Vance',
+      name: 'Rahul Varma',
       role: 'CrossFit & Functional Athletic Director',
       certifications: 'CrossFit Level 3 (CCFT)',
       experience: '8+ Years Exp',
@@ -46,7 +46,7 @@ export default function Home() {
       badgeColor: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10',
     },
     {
-      name: 'Priya Sharma',
+      name: 'Devika Nambiar',
       role: 'Power Yoga & Structural Mobility Lead',
       certifications: 'RYT-500, Functional Mobility Spec',
       experience: '7+ Years Exp',

@@ -23,7 +23,12 @@ export function BookingProvider({ children }) {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_CLASSES_STATE);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Merge with initialClasses to keep metadata and coach names up to date
+        return initialClasses.map((c) => {
+          const match = parsed.find((p) => p.id === c.id);
+          return match ? { ...c, spotsLeft: match.spotsLeft } : c;
+        });
       }
     } catch (e) {
       console.error('Error reading localStorage classes:', e);
