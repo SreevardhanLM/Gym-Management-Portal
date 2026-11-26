@@ -1,4 +1,4 @@
-# 🏋️ IronPulse Fitness & Gym Membership Portal
+# 🏋️ FitnessCh Membership Portal
 
 A modern, high-energy, and responsive Fitness & Gym Membership Portal built with **React 19**, **Tailwind CSS v4**, and **React Router DOM**.
 

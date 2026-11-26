@@ -21,16 +21,16 @@ export default function PlanCard({ plan, isAnnual }) {
 
   return (
     <div
-      className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
+      className={`relative rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-300 ${
         plan.popular
-          ? 'bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-2 border-orange-500 shadow-2xl shadow-orange-500/20 scale-100 lg:-translate-y-2'
-          : 'bg-slate-900/80 border border-slate-800 hover:border-slate-700 shadow-xl'
+          ? 'bg-gradient-to-b from-zinc-950 via-black to-zinc-950 border-2 border-green-500 shadow-[0_0_50px_-10px_rgba(34,197,94,0.3)] scale-100 lg:-translate-y-2'
+          : 'bg-zinc-950/80 border border-zinc-800 hover:border-green-500/40 shadow-xl'
       }`}
     >
       {/* Popular Badge */}
       {plan.popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 fill-slate-950" />
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-black font-black text-xs uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg shadow-green-500/30 flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 fill-black" />
           <span>Most Popular</span>
         </div>
       )}
@@ -42,30 +42,30 @@ export default function PlanCard({ plan, isAnnual }) {
             {plan.name}
           </h3>
           {isAnnual && (
-            <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+            <span className="text-[11px] font-bold text-green-400 bg-green-500/10 border border-green-500/20 px-2.5 py-0.5 rounded-full">
               Save 20%
             </span>
           )}
         </div>
-        <p className="text-sm text-slate-400 mb-6 min-h-[40px] leading-relaxed">
+        <p className="text-sm text-zinc-400 mb-6 min-h-[40px] leading-relaxed">
           {plan.tagline}
         </p>
 
         {/* Pricing Display */}
-        <div className="mb-6 p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+        <div className="mb-6 p-4 rounded-2xl bg-black border border-zinc-800">
           <div className="flex items-baseline gap-1.5">
-            <span className="text-xl font-black text-orange-400">Rs.</span>
-            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+            <span className="text-xl font-black text-green-400">Rs.</span>
+            <span className="text-4xl sm:text-5xl font-black text-white tracking-tight font-mono">
               {price.toLocaleString('en-IN')}
             </span>
-            <span className="text-slate-400 font-medium text-sm">/ month</span>
+            <span className="text-zinc-400 font-medium text-sm">/ month</span>
           </div>
-          <p className="text-xs text-slate-500 mt-1 capitalize">{billedInfo}</p>
+          <p className="text-xs text-zinc-500 mt-1 capitalize">{billedInfo}</p>
         </div>
 
         {/* Feature List */}
         <div className="space-y-3.5 mb-8">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+          <p className="text-xs font-bold uppercase tracking-wider text-zinc-400">
             What's Included:
           </p>
           {plan.features.map((feature, idx) => (
@@ -73,13 +73,13 @@ export default function PlanCard({ plan, isAnnual }) {
               <div
                 className={`mt-0.5 rounded-full p-1 shrink-0 ${
                   plan.popular
-                    ? 'bg-orange-500/20 text-orange-400'
-                    : 'bg-slate-800 text-slate-300'
+                    ? 'bg-green-500/20 text-green-400'
+                    : 'bg-zinc-800 text-zinc-300'
                 }`}
               >
                 <Check className="w-3.5 h-3.5 stroke-[3]" />
               </div>
-              <span className="text-sm text-slate-300 leading-snug">{feature}</span>
+              <span className="text-sm text-zinc-300 leading-snug">{feature}</span>
             </div>
           ))}
         </div>
@@ -88,10 +88,10 @@ export default function PlanCard({ plan, isAnnual }) {
       {/* CTA Button */}
       <button
         onClick={handleSelectPlan}
-        className={`w-full py-4 px-6 rounded-2xl font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer ${
+        className={`w-full py-4 px-6 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all cursor-pointer ${
           plan.popular
-            ? 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 shadow-lg shadow-orange-500/30 hover:scale-[1.02]'
-            : 'bg-slate-800 hover:bg-slate-700 text-white hover:text-orange-400 border border-slate-700 hover:border-orange-500/50'
+            ? 'bg-green-500 hover:bg-green-400 text-black shadow-lg shadow-green-500/30 hover:scale-[1.02]'
+            : 'bg-zinc-900 hover:bg-zinc-800 text-white hover:text-green-400 border border-zinc-700 hover:border-green-500/50'
         }`}
       >
         <span>Select Plan</span>

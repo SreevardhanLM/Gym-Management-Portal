@@ -13,33 +13,28 @@ export default function ClassCard({ workout }) {
       case 'strength':
         return {
           icon: Dumbbell,
-          badge: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-          accent: 'border-amber-500/30',
+          badge: 'bg-green-500/15 text-green-400 border-green-500/30',
         };
       case 'hiit':
         return {
           icon: Flame,
-          badge: 'bg-orange-500/15 text-orange-400 border-orange-500/30',
-          accent: 'border-orange-500/30',
+          badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
         };
       case 'crossfit':
         return {
           icon: Zap,
-          badge: 'bg-red-500/15 text-red-400 border-red-500/30',
-          accent: 'border-red-500/30',
+          badge: 'bg-lime-500/15 text-lime-400 border-lime-500/30',
         };
       case 'power yoga':
       case 'yoga':
         return {
           icon: HeartHandshake,
-          badge: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
-          accent: 'border-purple-500/30',
+          badge: 'bg-teal-500/15 text-teal-400 border-teal-500/30',
         };
       default:
         return {
           icon: Dumbbell,
-          badge: 'bg-slate-800 text-slate-300 border-slate-700',
-          accent: 'border-slate-800',
+          badge: 'bg-zinc-800 text-zinc-300 border-zinc-700',
         };
     }
   };
@@ -57,12 +52,12 @@ export default function ClassCard({ workout }) {
 
   return (
     <div
-      className={`rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between border ${
+      className={`rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between border ${
         isBooked
-          ? 'bg-slate-900 border-emerald-500/60 shadow-lg shadow-emerald-500/10'
+          ? 'bg-zinc-950 border-green-500 shadow-[0_0_30px_rgba(34,197,94,0.2)]'
           : isFull
-          ? 'bg-slate-950/70 border-slate-800/80 opacity-75'
-          : 'bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:shadow-xl hover:-translate-y-1'
+          ? 'bg-zinc-950/70 border-zinc-800/80 opacity-70'
+          : 'bg-zinc-950/80 border-zinc-800 hover:border-green-500/40 hover:shadow-xl hover:-translate-y-1'
       }`}
     >
       <div>
@@ -70,18 +65,18 @@ export default function ClassCard({ workout }) {
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
             <span
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold border uppercase tracking-wider ${meta.badge}`}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border uppercase tracking-wider ${meta.badge}`}
             >
               <CategoryIcon className="w-3.5 h-3.5" />
               <span>{workout.category}</span>
             </span>
-            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-zinc-900 text-zinc-300 border border-zinc-800">
               {workout.day}
             </span>
           </div>
 
           {/* Intensity Pill */}
-          <span className="text-[11px] font-bold text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+          <span className="text-[11px] font-bold text-zinc-400 bg-black px-2.5 py-0.5 rounded-full border border-zinc-800">
             {workout.intensity || 'High'}
           </span>
         </div>
@@ -92,20 +87,20 @@ export default function ClassCard({ workout }) {
         </h3>
 
         {/* Description */}
-        <p className="text-xs text-slate-400 leading-relaxed mb-5 min-h-[36px]">
+        <p className="text-xs text-zinc-400 leading-relaxed mb-5 min-h-[36px]">
           {workout.description}
         </p>
 
         {/* Schedule & Trainer Details */}
-        <div className="space-y-2 mb-6 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
-          <div className="flex items-center gap-2 text-xs text-slate-300">
-            <Clock className="w-4 h-4 text-orange-400 shrink-0" />
+        <div className="space-y-2 mb-6 p-3.5 rounded-2xl bg-black border border-zinc-800">
+          <div className="flex items-center gap-2 text-xs text-zinc-300">
+            <Clock className="w-4 h-4 text-green-400 shrink-0" />
             <span className="font-semibold">{workout.time}</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-slate-400">{workout.duration}</span>
+            <span className="text-zinc-600">•</span>
+            <span className="text-zinc-400">{workout.duration}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-300">
-            <User className="w-4 h-4 text-orange-400 shrink-0" />
+          <div className="flex items-center gap-2 text-xs text-zinc-300">
+            <User className="w-4 h-4 text-green-400 shrink-0" />
             <span>Trainer: </span>
             <span className="font-bold text-white">{workout.trainer}</span>
           </div>
@@ -115,7 +110,7 @@ export default function ClassCard({ workout }) {
       {/* Spot Status & Action Button */}
       <div>
         <div className="flex items-center justify-between mb-3 text-xs">
-          <span className="text-slate-400 font-medium">Spots Availability:</span>
+          <span className="text-zinc-400 font-medium">Spots Availability:</span>
           {isFull && !isBooked ? (
             <span className="font-bold text-rose-400 flex items-center gap-1">
               <AlertCircle className="w-3.5 h-3.5" />
@@ -127,17 +122,17 @@ export default function ClassCard({ workout }) {
               Only {workout.spotsLeft} left!
             </span>
           ) : (
-            <span className="font-bold text-emerald-400">
+            <span className="font-bold text-green-400">
               {workout.spotsLeft} of {workout.totalSpots} spots
             </span>
           )}
         </div>
 
         {/* Capacity Bar */}
-        <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-5">
+        <div className="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden mb-5">
           <div
             className={`h-full transition-all duration-300 ${
-              isFull ? 'bg-rose-500' : workout.spotsLeft <= 3 ? 'bg-amber-500' : 'bg-emerald-500'
+              isFull ? 'bg-rose-500' : workout.spotsLeft <= 3 ? 'bg-amber-500' : 'bg-green-500'
             }`}
             style={{
               width: `${Math.round(((workout.totalSpots - workout.spotsLeft) / workout.totalSpots) * 100)}%`,
@@ -150,7 +145,7 @@ export default function ClassCard({ workout }) {
           <button
             type="button"
             onClick={handleBookingToggle}
-            className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-500/20 hover:bg-rose-500/20 text-emerald-400 hover:text-rose-400 border border-emerald-500/40 hover:border-rose-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer group"
+            className="w-full py-3 px-4 rounded-full font-bold text-xs uppercase tracking-wider bg-green-500/20 hover:bg-rose-500/20 text-green-400 hover:text-rose-400 border border-green-500/40 hover:border-rose-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer group"
           >
             <CheckCircle2 className="w-4 h-4 group-hover:hidden" />
             <span className="group-hover:hidden">Booked ✓</span>
@@ -160,7 +155,7 @@ export default function ClassCard({ workout }) {
           <button
             type="button"
             disabled
-            className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-slate-800/60 text-slate-500 border border-slate-800 cursor-not-allowed text-center"
+            className="w-full py-3 px-4 rounded-full font-bold text-xs uppercase tracking-wider bg-zinc-900 text-zinc-500 border border-zinc-800 cursor-not-allowed text-center"
           >
             Class Full (Waitlist Only)
           </button>
@@ -168,7 +163,7 @@ export default function ClassCard({ workout }) {
           <button
             type="button"
             onClick={handleBookingToggle}
-            className="w-full py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 shadow-md shadow-orange-500/20 hover:scale-[1.02] active:scale-100 transition-all cursor-pointer flex items-center justify-center gap-1.5"
+            className="w-full py-3 px-4 rounded-full font-black text-xs uppercase tracking-widest bg-green-500 hover:bg-green-400 text-black shadow-lg shadow-green-500/25 hover:scale-[1.02] active:scale-100 transition-all cursor-pointer flex items-center justify-center gap-1.5"
           >
             <span>Book Spot</span>
           </button>
