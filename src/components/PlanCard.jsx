@@ -21,7 +21,7 @@ export default function PlanCard({ plan, isAnnual }) {
 
   return (
     <div
-      className={`relative rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-300 ${
+      className={`relative rounded-[2rem] p-8 flex flex-col justify-between smooth-card ${
         plan.popular
           ? 'bg-gradient-to-b from-zinc-950 via-black to-zinc-950 border-2 border-green-500 shadow-[0_0_50px_-10px_rgba(34,197,94,0.3)] scale-100 lg:-translate-y-2'
           : 'bg-zinc-950/80 border border-zinc-800 hover:border-green-500/40 shadow-xl'

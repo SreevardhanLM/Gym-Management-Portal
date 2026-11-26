@@ -52,7 +52,7 @@ export default function ClassCard({ workout }) {
 
   return (
     <div
-      className={`rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between border ${
+      className={`rounded-3xl p-6 smooth-card flex flex-col justify-between border ${
         isBooked
           ? 'bg-zinc-950 border-green-500 shadow-[0_0_30px_rgba(34,197,94,0.2)]'
           : isFull

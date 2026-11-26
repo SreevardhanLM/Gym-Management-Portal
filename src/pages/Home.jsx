@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { animate, stagger } from 'animejs';
 import plansData from '../data/plans.json';
 import PlanCard from '../components/PlanCard';
 import BMICalculator from '../components/BMICalculator';
@@ -42,6 +43,38 @@ function InstagramIcon(props) {
 
 export default function Home() {
   const [isAnnual, setIsAnnual] = useState(false);
+  const headlineRef = useRef(null);
+  const athleteCardRef = useRef(null);
+  const socialRef = useRef(null);
+
+  // Anime.js initial hero entrance animation
+  useEffect(() => {
+    if (headlineRef.current) {
+      animate(headlineRef.current, {
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 800,
+        ease: 'outExpo',
+      });
+    }
+    if (athleteCardRef.current) {
+      animate(athleteCardRef.current, {
+        scale: [0.93, 1],
+        opacity: [0, 1],
+        duration: 900,
+        ease: 'outExpo',
+      });
+    }
+    if (socialRef.current) {
+      animate(socialRef.current.children, {
+        opacity: [0, 1],
+        translateX: [-20, 0],
+        delay: stagger(120),
+        duration: 700,
+        ease: 'outBack',
+      });
+    }
+  }, []);
 
   // Certified coaches with authentic Malayali names
   const trainers = [
@@ -106,40 +139,43 @@ export default function Home() {
     <div className="space-y-28 pb-24 overflow-hidden relative">
       {/* Outer ambient green aura matching reference perimeter */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-green-500/15 rounded-full blur-[140px]" />
-        <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[160px]" />
-        <div className="absolute -bottom-40 left-1/3 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[180px]" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-green-500/15 rounded-full blur-[140px] animate-pulse-aura" />
+        <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[160px] animate-pulse-aura" />
+        <div className="absolute -bottom-40 left-1/3 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[180px] animate-pulse-aura" />
       </div>
 
-      {/* 1. HERO SECTION - Coded to match reference design without image screenshot overlap */}
-      <section className="relative z-10 pt-4 md:pt-8 pb-4">
+      {/* 1. HERO SECTION - Coded to match reference design with smooth animations */}
+      <section className="relative z-10 pt-4 md:pt-8 pb-4 animate-fade-in">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-[2.5rem] bg-gradient-to-b from-zinc-950 via-black to-zinc-950 border border-green-500/20 shadow-[0_0_80px_-20px_rgba(34,197,94,0.25)] overflow-hidden p-6 sm:p-10 lg:p-14">
             
             {/* Ambient inner green edge glows */}
-            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-green-500/15 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-emerald-500/15 rounded-full blur-[130px] pointer-events-none" />
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-green-500/15 rounded-full blur-[120px] pointer-events-none animate-pulse-aura" />
+            <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-emerald-500/15 rounded-full blur-[130px] pointer-events-none animate-pulse-aura" />
 
             {/* Top Center: Clean Giant Headline */}
             <div className="text-center mb-8 relative z-10">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white uppercase tracking-tight leading-[1.05] max-w-4xl mx-auto">
+              <h1
+                ref={headlineRef}
+                className="text-4xl sm:text-6xl md:text-7xl font-black text-white uppercase tracking-tight leading-[1.05] max-w-4xl mx-auto drop-shadow-md"
+              >
                 Reach Your Best <br className="hidden sm:inline" />
                 Shape For Life
               </h1>
             </div>
 
-            {/* Central Stage: High Quality Gym Athlete Photo with Atmospheric Fade */}
-            <div className="relative z-10 flex justify-center items-center my-4">
-              <div className="relative w-full max-w-[420px] sm:max-w-[480px] h-[320px] sm:h-[400px] rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
+            {/* Central Stage: High Quality Gym Athlete Photo with Smooth Breathing Float */}
+            <div ref={athleteCardRef} className="relative z-10 flex justify-center items-center my-4 animate-float">
+              <div className="relative w-full max-w-[420px] sm:max-w-[480px] h-[320px] sm:h-[400px] rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
                 <img
                   src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=900&auto=format&fit=crop&q=85"
                   alt="Elite Fitness Coach"
-                  className="w-full h-full object-cover object-top filter brightness-95 contrast-105"
+                  className="w-full h-full object-cover object-top filter brightness-95 contrast-105 transition-transform duration-700 hover:scale-105"
                 />
                 {/* Vignette gradients to blend into the dark canvas */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-green-500/30 text-green-400 text-[11px] font-bold tracking-widest uppercase">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-green-500/30 text-green-400 text-[11px] font-bold tracking-widest uppercase shadow-lg shadow-green-500/10">
                   Elite Strength & Transformation
                 </div>
               </div>
@@ -148,15 +184,14 @@ export default function Home() {
             {/* Bottom Row: Left Social Rail & Clients Proof | Right Supporting text & Neon Green Button */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end relative z-20 pt-6 border-t border-zinc-900">
               
-              {/* Left Column (6 cols): Social icons column & 1.2k Happy Clients */}
-              <div className="md:col-span-6 flex flex-col sm:flex-row items-start sm:items-end gap-6 sm:gap-8">
-                {/* Vertical Social Icons */}
-                <div className="flex flex-row sm:flex-col items-center gap-4 text-zinc-400">
+              {/* Left Column: Social Icons */}
+              <div className="md:col-span-6 flex items-center">
+                <div ref={socialRef} className="flex items-center gap-4 text-zinc-400">
                   <a
                     href="https://youtube.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-full hover:text-green-400 hover:bg-zinc-900 transition-colors"
+                    className="p-2.5 rounded-full hover:text-green-400 hover:bg-zinc-900 transition-all duration-300 hover:scale-125"
                     aria-label="YouTube"
                   >
                     <YoutubeIcon />
@@ -165,7 +200,7 @@ export default function Home() {
                     href="https://facebook.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-full hover:text-green-400 hover:bg-zinc-900 transition-colors"
+                    className="p-2.5 rounded-full hover:text-green-400 hover:bg-zinc-900 transition-all duration-300 hover:scale-125"
                     aria-label="Facebook"
                   >
                     <FacebookIcon />
@@ -174,41 +209,11 @@ export default function Home() {
                     href="https://instagram.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-full hover:text-green-400 hover:bg-zinc-900 transition-colors"
+                    className="p-2.5 rounded-full hover:text-green-400 hover:bg-zinc-900 transition-all duration-300 hover:scale-125"
                     aria-label="Instagram"
                   >
                     <InstagramIcon />
                   </a>
-                  <div className="hidden sm:block w-[1px] h-10 bg-zinc-800 ml-0" />
-                </div>
-
-                {/* 1.2k Happy Clients proof */}
-                <div className="flex items-center gap-3.5 bg-zinc-950/90 backdrop-blur-md px-4 py-3 rounded-2xl border border-zinc-800">
-                  <div className="flex -space-x-3 overflow-hidden">
-                    <img
-                      className="inline-block h-10 w-10 rounded-full ring-2 ring-green-500 object-cover"
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                      alt="Member 1"
-                    />
-                    <img
-                      className="inline-block h-10 w-10 rounded-full ring-2 ring-emerald-500 object-cover"
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                      alt="Member 2"
-                    />
-                    <img
-                      className="inline-block h-10 w-10 rounded-full ring-2 ring-lime-500 object-cover"
-                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80"
-                      alt="Member 3"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xl font-black text-white font-mono block leading-none">
-                      1.2k
-                    </span>
-                    <span className="text-[11px] font-semibold text-zinc-400">
-                      Happy Clients
-                    </span>
-                  </div>
                 </div>
               </div>
 
@@ -320,7 +325,7 @@ export default function Home() {
             return (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-zinc-950/80 border border-zinc-800/80 hover:border-green-500/40 transition-all hover:-translate-y-1 group"
+                className="p-6 rounded-3xl bg-zinc-950/80 border border-zinc-800/80 hover:border-green-500/40 smooth-card group"
               >
                 <div className="w-12 h-12 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Icon className="w-6 h-6" />
@@ -361,7 +366,7 @@ export default function Home() {
           {trainers.map((coach, idx) => (
             <div
               key={idx}
-              className="rounded-3xl bg-zinc-950/90 border border-zinc-800 p-6 flex flex-col justify-between hover:border-green-500/50 transition-all group shadow-xl"
+              className="rounded-3xl bg-zinc-950/90 border border-zinc-800 p-6 flex flex-col justify-between hover:border-green-500/50 smooth-card group shadow-xl"
             >
               <div>
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-zinc-900 to-zinc-800 flex items-center justify-center text-white font-black text-2xl mb-4 border border-zinc-700 group-hover:border-green-500/50 group-hover:text-green-400 transition-colors">

@@ -1,4 +1,5 @@
-import { useState, useId } from 'react';
+import { useState, useId, useEffect, useRef } from 'react';
+import { animate } from 'animejs';
 import { calculateBMI, getBMICategory, calculateDailyCalories } from '../utils/calculations';
 import { Flame, Activity, Target, Scale, Info } from 'lucide-react';
 
@@ -12,6 +13,30 @@ export default function BMICalculator() {
   const bmi = calculateBMI(Number(height), Number(weight));
   const category = getBMICategory(bmi);
   const nutrition = calculateDailyCalories(Number(height), Number(weight), goal);
+
+  const calorieRef = useRef(null);
+  const prevCalories = useRef(nutrition?.targetCalories || 2400);
+
+  // Anime.js smooth animated number counter for daily calorie target
+  useEffect(() => {
+    if (calorieRef.current && nutrition?.targetCalories) {
+      const startVal = prevCalories.current;
+      const endVal = nutrition.targetCalories;
+      const obj = { val: startVal };
+      animate(obj, {
+        val: endVal,
+        round: 1,
+        duration: 450,
+        ease: 'outExpo',
+        onUpdate: () => {
+          if (calorieRef.current) {
+            calorieRef.current.innerText = Math.round(obj.val).toLocaleString();
+          }
+        },
+      });
+      prevCalories.current = endVal;
+    }
+  }, [nutrition?.targetCalories]);
 
   const goals = [
     { id: 'fat-loss', label: 'Fat Loss', desc: 'Caloric Deficit' },
@@ -181,7 +206,7 @@ export default function BMICalculator() {
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-2xl font-black text-white font-mono">
+                <span ref={calorieRef} className="text-2xl font-black text-white font-mono">
                   {nutrition ? nutrition.targetCalories.toLocaleString() : '--'}
                 </span>
                 <span className="text-xs font-semibold text-zinc-400 ml-1">kcal</span>

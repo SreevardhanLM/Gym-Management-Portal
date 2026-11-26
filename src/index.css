@@ -17,22 +17,76 @@
     background-color: #22c55e;
     color: #000000;
   }
+
+  /* Custom smooth dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050607;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22c55e;
+  }
 }
 
-/* Custom ambient green glow effects */
-.ambient-green-glow {
-  box-shadow: 0 0 50px -10px rgba(34, 197, 94, 0.25);
+/* Smooth keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.neon-green-btn {
-  background: #22e65d;
-  color: #000000;
-  box-shadow: 0 0 25px rgba(34, 230, 93, 0.35);
-  transition: all 0.25s ease;
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
-.neon-green-btn:hover {
-  background: #27f564;
-  box-shadow: 0 0 35px rgba(34, 230, 93, 0.6);
-  transform: translateY(-2px);
+@keyframes pulseAura {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.08);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-pulse-aura {
+  animation: pulseAura 6s ease-in-out infinite;
+}
+
+/* Reusable smooth interactive card class */
+.smooth-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.smooth-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(34, 197, 94, 0.2);
 }
