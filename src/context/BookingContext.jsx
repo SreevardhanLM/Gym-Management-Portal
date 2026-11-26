@@ -22,11 +22,22 @@ export function BookingProvider({ children }) {
   const [classesList, setClassesList] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_CLASSES_STATE);
+      const booked = localStorage.getItem(STORAGE_KEY_BOOKED);
+      const bookedIds = booked ? JSON.parse(booked) : [];
+
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Merge with initialClasses to keep metadata and coach names up to date
         return initialClasses.map((c) => {
           const match = parsed.find((p) => p.id === c.id);
+          // If user booked this class, reflect that reservation
+          if (bookedIds.includes(c.id)) {
+            const base = c.spotsLeft > 0 ? c.spotsLeft : (match ? match.spotsLeft : c.spotsLeft);
+            return { ...c, spotsLeft: Math.max(0, base - 1) };
+          }
+          // If initial data added spots to a formerly full session, show updated vacant spots
+          if (c.spotsLeft > 0 && match && match.spotsLeft === 0) {
+            return c;
+          }
           return match ? { ...c, spotsLeft: match.spotsLeft } : c;
         });
       }
